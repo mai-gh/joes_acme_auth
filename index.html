@@ -75,7 +75,13 @@
 
                     // get and set notes
                     //console.log('this.state: ', this.state)
-                    const {data} = await axios.get(`/api/users/${this.state.auth.id}/notes`)
+                    //const {data} = await axios.get(`/api/users/${this.state.auth.id}/notes`,{
+                    const {data} = await axios.get(`/api/users/notes`,{
+
+                        headers:{
+                            authorization: token
+                        }
+                    })
                     //console.log(data)
                     this.setState({notes: data})
                     //this.setState({...this.state, notes: data})
